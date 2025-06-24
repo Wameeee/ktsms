@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.wameeee.mapper.StorageRecordMapper" >
+<mapper namespace="cn.wameeee.mapper.StorageRecordMapper">
+
+    <!-- 插入用户 -->
+    <insert id="insert">
+        insert into `storage_record`( srCode, supplierId, goodsName, goodsDesc, goodsUnit, goodsCount, totalAmount, payStatus, createdUserId, createdTime)
+        values (#{srCode},#{supplierId},#{goodsName},#{goodsDesc},#{goodsUnit},#{goodsCount},#{totalAmount},#{payStatus},#{createdUserId},now())
+    </insert>
+
+    <!-- 更新用户 -->
+    <update id="update">
+        update `storage_record`
+        <set>
+            <if test="srCode != null">srCode = #{srCode},</if>
+            <if test="supplierId != null">supplierId = #{supplierId},</if>
+            <if test="goodsName != null">goodsName = #{goodsName},</if>
+            <if test="goodsDesc != null">goodsDesc = #{goodsDesc},</if>
+            <if test="goodsUnit != null">goodsUnit = #{goodsUnit},</if>
+            <if test="goodsCount != null">goodsCount = #{goodsCount},</if>
+            <if test="totalAmount != null">totalAmount = #{totalAmount},</if>
+            <if test="payStatus != null">payStatus = #{payStatus},</if>
+            <if test="updatedUserId != null">updatedUserId = #{updatedUserId},</if>
+            <if test="updatedTime != null">updatedTime = #{updatedTime}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!-- 根据ID删除用户 -->
+    <delete id="deleteById">
+        delete from  `storage_record` where id=#{id}
+    </delete>
 </mapper>

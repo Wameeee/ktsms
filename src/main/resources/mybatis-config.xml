@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 设置 -->
+    <settings>
+        <!-- 开启驼峰命名自动映射 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 开启二级缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- 打印SQL日志 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!-- 类型别名 -->
+    <typeAliases>
+        <!-- 可以在这里添加实体类的别名 -->
+        <!-- 例如: <typeAlias type="com.example.domain.User" alias="User"/> -->
+        <!-- 或者指定包名，MyBatis会自动扫描包中的类并注册别名 -->
+        <!-- <package name="cn.wameeee.entity"/> -->
+        <package name="cn.wameeee.entity"/>
+    </typeAliases>
+
+    <!-- 环境配置 -->
+    <environments default="development">
+        <environment id="development">
+            <!-- 使用JDBC事务管理 -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据源配置 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/ktsms_db?useSSL=false&amp;serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="110110As."/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 映射器配置 -->
+    <mappers>
+        <!-- 在这里添加mapper文件路径 -->
+        <!-- 例如: <mapper resource="mappers/UserMapper.xml"/> -->
+        <!-- <mapper resource="mapper/SysUserMapper.xml"/> -->
+        <!-- 已在Spring配置文件中指定，此处可省略 -->
+    </mappers>
+</configuration>

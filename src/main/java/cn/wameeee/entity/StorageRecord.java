@@ -3,7 +3,7 @@ package cn.wameeee.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Storage_Record  implements Serializable {
+public class StorageRecord implements Serializable {
 
     private static final long serialVersionUID = 7396827213526250839L;
 

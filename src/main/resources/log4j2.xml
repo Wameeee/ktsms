@@ -50,13 +50,13 @@
         </Logger>
         
         <!-- Spring相关日志 -->
-        <Logger name="org.springframework" level="INFO" additivity="false">
+        <Logger name="org.springframework" level="DEBUG" additivity="false">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="FileAppender"/>
         </Logger>
         
         <!-- 应用程序日志 -->
-        <Logger name="cn.wameeee" level="INFO" additivity="false">
+        <Logger name="cn.wameeee" level="DEBUG" additivity="false">
             <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="FileAppender"/>
             <AppenderRef ref="ErrorFileAppender"/>

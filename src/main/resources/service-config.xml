@@ -7,14 +7,23 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- 导入事务配置 -->
+    <import resource="classpath:transaction-config.xml"/>
+    
+    <!-- 导入MyBatis配置 -->
+    <import resource="classpath:mybatis-config-spring.xml"/>
+
     <!--   component-scan负责扫描Service层业务组件-->
     <context:component-scan base-package="cn.wameeee.service"/>
     
     <!--    业务Bean-->
-    <bean id="sysUserService" class="cn.wameeee.service.impl.SysUserServiceImpl">
-        <property name="sysUserMapper" ref="sysUserMapper"/>
-    </bean>
-    <bean id="supplierService" class="cn.wameeee.service.impl.SupplierServiceImpl">
-        <property name="supplierMapper" ref="supplierMapper"/>
-    </bean>
+<!--    <bean id="sysUserService" class="cn.wameeee.service.impl.SysUserServiceImpl">-->
+<!--        <property name="sysUserMapper" ref="sysUserMapper"/>-->
+<!--    </bean>-->
+<!--    <bean id="supplierService" class="cn.wameeee.service.impl.SupplierServiceImpl">-->
+<!--        <property name="supplierMapper" ref="supplierMapper"/>-->
+<!--    </bean> -->
+<!--    <bean id="storageRecordService" class="cn.wameeee.service.impl.StorageRecordServiceImpl">-->
+<!--        <property name="storageRecordMapper" ref="storageRecordMapper"/>-->
+<!--    </bean>-->
 </beans> 

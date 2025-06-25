@@ -1,13 +1,11 @@
 package cn.wameeee.config;
 
+import cn.wameeee.cond.ConditionOnPropertyEnable;
 import cn.wameeee.entity.SysRole;
 import cn.wameeee.entity.SysUser;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
 @Configuration
 @PropertySource(value = "classpath:user.properties", encoding = "UTF-8")
@@ -34,7 +32,8 @@ public class JavaConfig {
     }
 
     @Bean
-    @Primary
+    @Conditional(ConditionOnPropertyEnable.OnEnableCondition.class)
+    @ConditionOnPropertyEnable(enableProperty = "admin.enable")
     public SysRole adminRole(){
         SysRole role = new SysRole();
         role.setId(1L);
@@ -44,6 +43,8 @@ public class JavaConfig {
     }
 
     @Bean
+    @Conditional(ConditionOnPropertyEnable.OnEnableCondition.class)
+    @ConditionOnPropertyEnable(enableProperty = "manager.enable")
     public SysRole managerRole(){
         SysRole role = new SysRole();
         role.setId(2L);
